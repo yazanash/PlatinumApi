@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Account;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -29,7 +30,8 @@ class PlayerFactory extends Factory
             "SubscribeEndDate"=>  $this->faker->dateTimeThisDecade(),
             "IsTakenContainer"=> true,
             "IsSubscribed"=> true,
-            "Account_id"=>Account::factory()
+            "Account_id"=>Account::factory(),
+
         ];
     }
 }

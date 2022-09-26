@@ -18,7 +18,8 @@ class Player extends Model
         "SubscribeEndDate",
         "IsTakenContainer",
         "IsSubscribed",
-        "Account_id"
+        "Account_id",
+        "user_id",
     ];
     public function trainings(){
         return $this->hasMany(Training::class);
@@ -34,5 +35,8 @@ class Player extends Model
     }
     public function account(){
         return $this->hasOne(Account::class);
+    }
+    public function user(){
+        return $this->hasOne(User::class);
     }
 }
