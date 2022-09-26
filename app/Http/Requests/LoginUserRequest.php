@@ -3,8 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rules;
-class StoreUserRequest extends FormRequest
+
+class LoginUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class StoreUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,9 +24,7 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            "email"=>["required","string","max:255","unique:users"],
-            "phone"=>["required","numeric","min:11"],
-            "password"=>['required',"confirmed",Rules\Password::defaults()]
+            //
         ];
     }
 }
