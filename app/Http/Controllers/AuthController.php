@@ -14,11 +14,11 @@ class AuthController extends Controller
 {
     use HttpResponses;
 
-    public function login(LoginUserRequest $request){
+    public function loginUser(LoginUserRequest $request){
         $request->validated($request->all());
-       if (!Auth::attempt(['phone' => $request['phone'],'password' => $request['password']])){
-            return $this->error('',"Failed auth",401);
-        }
+        if (!Auth::attempt(['phone' => $request['phone'],'password' => $request['password']])){
+                return $this->error('',"Failed auth",401);
+            }
         $user = User::where("phone",$request["phone"])->first();
 
 
