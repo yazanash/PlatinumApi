@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
             $table->dateTime("LastCheck");
-            $table->integer("players_id");
+            $table->integer("player_id");
             $table->integer("trainer_id")->nullable();
             $table->integer("Sport_id");
             $table->dateTime("rollDate");

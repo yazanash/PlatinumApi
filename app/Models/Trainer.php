@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Trainer extends Model
 {
     use HasFactory;
+    function training(){
+        $this->hasMany(Training::class);
+    }
 }
