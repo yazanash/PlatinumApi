@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Player;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class PaymentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "player_id"=>Player::factory(),
+            "PaymentValue"=>$this->faker->numberBetween(2000,50000),
+            "des"=>$this->faker->text(),
+            "PayDate"=> $this->faker->dateTimeThisDecade(),
         ];
     }
 }

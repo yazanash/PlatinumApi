@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Account;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,19 @@ class PlayerFactory extends Factory
      */
     public function definition()
     {
+        $player=$this->faker->randomElement(["Yazan","Ammar","Salman","Osama","Sameer"]);
+        $name=$this->faker->name();
         return [
-            //
+            "FullName"=> $name,
+            "Phone"=> $this->faker->phoneNumber(),
+            "GenderMale"=> true,
+            "Weight"=> $this->faker->numberBetween(85,120),
+            "Height"=> $this->faker->numberBetween(85,120),
+            "SubscribeDate"=> $this->faker->dateTimeThisDecade(),
+            "SubscribeEndDate"=>  $this->faker->dateTimeThisDecade(),
+            "IsTakenContainer"=> true,
+            "IsSubscribed"=> true,
+            "Account_id"=>Account::factory()
         ];
     }
 }

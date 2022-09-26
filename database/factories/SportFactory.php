@@ -17,7 +17,12 @@ class SportFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "name"=> $this->faker->name(),
+            "price"=> $this->faker->numberBetween(20000,50000),
+            "isActive"=> $this->faker->boolean(),
+            "daysInWeek"=> $this->faker->numberBetween(1,6),
+            "DailyPrice"=> $this->faker->numberBetween(2000,5000),
+            "DaysCount"=> $this->faker->numberBetween(1,30),
         ];
     }
 }

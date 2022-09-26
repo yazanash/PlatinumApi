@@ -17,7 +17,14 @@ class OfferFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "name"=>$this->faker->name(),
+            "percent"=>$this->faker->numberBetween(1,100),
+            "endDate"=>$this->faker->dateTimeThisDecade(),
+            "subscribeCount"=>$this->faker->numberBetween(1,12),
+            "FullPay"=>$this->faker->boolean(),
+            "isBoth"=>$this->faker->boolean(),
+            "isTrainer"=>$this->faker->boolean(),
+            "isGym"=>$this->faker->boolean(),
         ];
     }
 }

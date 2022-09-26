@@ -17,7 +17,8 @@ class AccountFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "balance"=>$this->faker->numberBetween(0,50000),
+            "lastCheck"=>$this->faker->dateTimeThisDecade(),
         ];
     }
 }
