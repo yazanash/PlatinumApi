@@ -24,7 +24,7 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            "email"=>["required","string","max:255","unique:users"],
+            
             "phone"=>["required","numeric","min:11"],
             "password"=>['required',"confirmed",Rules\Password::defaults()]
         ];
