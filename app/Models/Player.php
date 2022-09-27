@@ -19,7 +19,6 @@ class Player extends Model
         "IsTakenContainer",
         "IsSubscribed",
         "Account_id",
-        "user_id",
     ];
     public function trainings(){
         return $this->hasMany(Training::class);

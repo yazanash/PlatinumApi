@@ -4,10 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePlayerRequest;
 use App\Http\Requests\UpdatePlayerRequest;
+use App\Http\Resources\PlayerResource;
+use App\Models\Account;
 use App\Models\Player;
+use App\Traits\HttpResponses;
+use Illuminate\Support\Facades\Auth;
 
 class PlayerController extends Controller
 {
+    use HttpResponses;
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +20,7 @@ class PlayerController extends Controller
      */
     public function index()
     {
-        return "PLayers";
+        return new PlayerResource( Player::find(Auth::user()->player_id));
     }
 
     /**
@@ -36,7 +41,25 @@ class PlayerController extends Controller
      */
     public function store(StorePlayerRequest $request)
     {
-        //
+        $request->validated($request->all());
+
+        $player = Player::create([
+            "FullName"=>$request->FullName,
+            "Phone" =>$request->Phone,
+            "GenderMale"=>$request->GenderMale,
+            "Weight"=>$request->Weight,
+            "Height"=>$request->Height,
+            "SubscribeDate"=>$request->SubscribeDate,
+            "SubscribeEndDate"=>$request->SubscribeEndDate,
+            "IsTakenContainer"=>$request->IsTakenContainer,
+            "IsSubscribed"=>$request->IsSubscribed,
+            "Account_id"=>Account::create([
+                "balance"=>$request->balance,
+                "lastCheck"=>$request->SubscribeDate,
+            ])->id,
+        ]);
+
+        return new PlayerResource($player);
     }
 
     /**
@@ -47,7 +70,10 @@ class PlayerController extends Controller
      */
     public function show(Player $player)
     {
-        //
+        if(Auth::user()->player_id!==$player->id){
+            return $this->error("","You are not authorized",204);
+        }
+
     }
 
     /**

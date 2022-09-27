@@ -36,7 +36,8 @@ class AuthController extends Controller
             "email"=>$request->email,
             "phone"=>$request->phone,
             "password"=>Hash::make($request->password),
-            "name" => "Player"
+            "name" => "Player",
+            "player_id" => 15
         ]);
         return $this->success([
             "user"=>$user,
@@ -44,7 +45,10 @@ class AuthController extends Controller
         ],"");
     }
     public function logout(){
-        return response()->json(["logout Method"]) ;
+        Auth::user()->currentAccessToken()->delete();
+        return $this->success([
+            "message"=>"Thanks for using our system have a nice day :) "
 
+        ]);
     }
 }
