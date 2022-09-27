@@ -25,6 +25,7 @@ Route::post("/login",[App\Http\Controllers\AuthController::class,"loginUser"]);
 
 Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::resource("Players",App\Http\Controllers\PlayerController::class);
+    Route::get("/player/view",[App\Http\Controllers\PlayerController::class,"view"]);
     Route::post("/logout",[App\Http\Controllers\AuthController::class,"logout"]);
 
 });

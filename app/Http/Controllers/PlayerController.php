@@ -75,7 +75,17 @@ class PlayerController extends Controller
         }
 
     }
-
+ /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Player  $player
+     * @return \Illuminate\Http\Response
+     */
+    public function view()
+    {
+       $player= Player::find(Auth::user()->player_id);
+        return $this->success(new PlayerResource($player));
+    }
     /**
      * Show the form for editing the specified resource.
      *

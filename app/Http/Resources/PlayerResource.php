@@ -23,7 +23,6 @@ class PlayerResource extends JsonResource
             "Phone"=>$this->Phone,
             "SubscribeDate"=>$this->SubscribeDate,
             "Balance" =>$balance,
-            "trainings"=>$this->trainings
         ];
     }
 }
