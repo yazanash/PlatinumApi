@@ -3,7 +3,7 @@
 use App\Models\Player;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use PhpParser\Node\Expr\FuncCall;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +25,16 @@ Route::post("/login",[App\Http\Controllers\AuthController::class,"loginUser"]);
 
 Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::resource("Players",App\Http\Controllers\PlayerController::class);
-    Route::get("/player/view",[App\Http\Controllers\PlayerController::class,"view"]);
     Route::post("/logout",[App\Http\Controllers\AuthController::class,"logout"]);
 
-});
+
+
+
+    ///Player app routes
+    Route::get("/player/view",[App\Http\Controllers\PlayerController::class,"view"]);
+    Route::get("/player/training",[App\Http\Controllers\TrainingController::class,"view"]);
+    Route::get("/player/payment",[App\Http\Controllers\PaymentController::class,"view"]);
+    Route::get("/player/metrics",[App\Http\Controllers\PaymentController::class,"view"]);
+    Route::get("/player/program",[App\Http\Controllers\PaymentController::class,"view"]);
+ });
 

@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTrainingRequest;
 use App\Http\Requests\UpdateTrainingRequest;
+use App\Http\Resources\TrainingResource;
+use App\Models\Player;
 use App\Models\Training;
+use Illuminate\Support\Facades\Auth;
 
 class TrainingController extends Controller
 {
@@ -17,7 +20,11 @@ class TrainingController extends Controller
     {
         //
     }
-
+    public function view()
+    {
+        $player =Player::find( Auth::user()->player_id);
+        return TrainingResource::collection($player->trainings);
+    }
     /**
      * Show the form for creating a new resource.
      *

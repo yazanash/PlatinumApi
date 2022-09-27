@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
+use App\Http\Resources\PaymentResource;
 use App\Models\Payment;
+use App\Models\Player;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
@@ -17,7 +20,11 @@ class PaymentController extends Controller
     {
         //
     }
-
+    public function view()
+    {
+        $player =Player::find( Auth::user()->player_id);
+        return PaymentResource::collection($player->payments);
+    }
     /**
      * Show the form for creating a new resource.
      *
