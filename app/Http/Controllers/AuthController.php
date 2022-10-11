@@ -20,8 +20,8 @@ class AuthController extends Controller
                 return $this->error('',"Failed auth",401);
             }
         $user = User::where("phone",$request["phone"])->first();
-
-
+        $user->Firebase_Token=$request->Token;
+        $user->save();
         return $this->success([
             'user'=>$user,
             "token" => $user->createToken("player token")->plainTextToken
