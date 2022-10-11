@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreOfferRequest;
 use App\Http\Requests\UpdateOfferRequest;
+use App\Http\Resources\OfferResource;
 use App\Models\Offer;
 
 class OfferController extends Controller
@@ -15,7 +16,7 @@ class OfferController extends Controller
      */
     public function index()
     {
-        //
+        return OfferResource::collection( Offer::all());
     }
 
     /**
