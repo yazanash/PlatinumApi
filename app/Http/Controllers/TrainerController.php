@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTrainerRequest;
 use App\Http\Requests\UpdateTrainerRequest;
+use App\Http\Resources\TrainerResource;
 use App\Models\Trainer;
 
 class TrainerController extends Controller
@@ -15,7 +16,7 @@ class TrainerController extends Controller
      */
     public function index()
     {
-        //
+      return TrainerResource::collection(Trainer::all());
     }
 
     /**

@@ -22,6 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post("/register",[App\Http\Controllers\AuthController::class,"register"]);
 Route::post("/login",[App\Http\Controllers\AuthController::class,"loginUser"]);
 Route::get("/Offers",[App\Http\Controllers\OfferController::class,"index"]);
+Route::get("/Sports",[App\Http\Controllers\SportController::class,"index"]);
+Route::get("/Trainers",[App\Http\Controllers\TrainerController::class,"index"]);
 // Route::get('/send',function(){
 //  $SERVER_API_KEY="AAAANtR3W_8:APA91bHhyP-petVns0-iOBeL44PbHor0TdA3c5kyFxiwcWJ6zuLj5UB8NiinmTiSrgnoh6v5dueMCVUgOIdfm0CAiBDel1r_v79iO2154O_w3MHWTDw3Q4NTnBUbr4VPVKtLu0RUpOCX";
 //  $token_1="cno7W02dSDaJAtbyzJSte2:APA91bH2JdFpB9ur25nei2CvhchOmk5nm6U2SnUknAyLN-8OnnzGMrc4ZNrB71chIUtB5mQcg_YGI26xDPUrjA4ddBOZepe7bxFa64z4X43fYQ1yCE9DQjzOPYQOO2dwCv4SkciQPvbZ";

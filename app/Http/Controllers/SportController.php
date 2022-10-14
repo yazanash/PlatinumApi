@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreSportRequest;
 use App\Http\Requests\UpdateSportRequest;
+use App\Http\Resources\SportResource;
 use App\Models\Sport;
 
 class SportController extends Controller
@@ -15,7 +16,7 @@ class SportController extends Controller
      */
     public function index()
     {
-        //
+        return SportResource::collection(Sport::all());
     }
 
     /**
