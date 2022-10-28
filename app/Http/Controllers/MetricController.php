@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMetricRequest;
 use App\Http\Requests\UpdateMetricRequest;
+use App\Http\Resources\MetricResource;
 use App\Models\Metric;
+use App\Models\Player;
+use Illuminate\Support\Facades\Auth;
 
 class MetricController extends Controller
 {
@@ -15,7 +18,8 @@ class MetricController extends Controller
      */
     public function index()
     {
-        //
+        $player =Player::find( Auth::user()->player_id);
+        return MetricResource::collection($player->metrics);
     }
 
     /**

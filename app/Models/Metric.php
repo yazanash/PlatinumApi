@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Metric extends Model
 {
     use HasFactory;
+   // protected $fillable=[];
+
     public function player(){
         return $this->belongsTo(Player::class);
     }

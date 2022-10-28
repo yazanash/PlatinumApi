@@ -15,6 +15,22 @@ return new class extends Migration
     {
         Schema::create('metrics', function (Blueprint $table) {
             $table->id();
+            $table->integer("player_id");
+            $table->string("R_Humerus");
+            $table->string("L_Humerus");
+            $table->string("R_Arm");
+            $table->string("L_Arm");
+            $table->string("Shoulders");
+            $table->string("Waist");
+            $table->string("Chest");
+            $table->string("Hips");
+            $table->string("R_Thigh");
+            $table->string("L_Thigh");
+            $table->string("R_Leg");
+            $table->string("L_Leg");
+            $table->string("Weight");
+            $table->string("Height");
+            $table->dateTime("Check_Date");
             $table->timestamps();
         });
     }
