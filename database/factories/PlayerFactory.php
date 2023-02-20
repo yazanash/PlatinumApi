@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Account;
+use App\Models\Program;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -31,7 +32,7 @@ class PlayerFactory extends Factory
             "IsTakenContainer"=> true,
             "IsSubscribed"=> true,
             "Account_id"=>Account::factory(),
-
+            "program_id"=>Program::factory()->hasTrainings(),
         ];
     }
 }

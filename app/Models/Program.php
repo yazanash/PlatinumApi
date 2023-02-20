@@ -9,7 +9,9 @@ class Program extends Model
 {
     use HasFactory;
     public function player(){
-        return $this->belongsTo(Player::class);
+        return $this->hasMany(Player::class);
     }
-
+    public function trainings(){
+        return $this->hasMany(TrainingData::class);
+    }
 }

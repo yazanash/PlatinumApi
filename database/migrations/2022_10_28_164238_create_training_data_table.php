@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('programs', function (Blueprint $table) {
+        Schema::create('training_data', function (Blueprint $table) {
             $table->id();
-            $table->string("program");
-            $table->integer("sport_id");
+            $table->integer("program_id");
+            $table->integer("category_id");
+            $table->string("category");
+            $table->string("training");
+            $table->integer("rounds");
+            $table->integer("count");
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('programs');
+        Schema::dropIfExists('training_data');
     }
 };

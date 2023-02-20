@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Sport;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class ProgramFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "program"=>$this->faker->name(),
+            "sport_id"=>Sport::factory(),
         ];
     }
 }

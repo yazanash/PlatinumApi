@@ -25,6 +25,7 @@ return new class extends Migration
             $table->boolean("IsTakenContainer");
             $table->boolean("IsSubscribed");
             $table->integer("Account_id");
+            $table->integer("program_id")->nullable();
             $table->timestamps();
         });
     }

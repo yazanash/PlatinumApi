@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProgramRequest;
-use App\Http\Requests\UpdateProgramRequest;
-use App\Http\Resources\ProgramResource;
-use App\Models\Player;
-use App\Models\Program;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreTrainingDataRequest;
+use App\Http\Requests\UpdateTrainingDataRequest;
+use App\Models\TrainingData;
 
-class ProgramController extends Controller
+class TrainingDataController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +15,7 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        $player =Player::find( Auth::user()->player_id);
-        return new ProgramResource($player->program);
+        //
     }
 
     /**
@@ -35,10 +31,10 @@ class ProgramController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreProgramRequest  $request
+     * @param  \App\Http\Requests\StoreTrainingDataRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProgramRequest $request)
+    public function store(StoreTrainingDataRequest $request)
     {
         //
     }
@@ -46,10 +42,10 @@ class ProgramController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\TrainingData  $trainingData
      * @return \Illuminate\Http\Response
      */
-    public function show(Program $program)
+    public function show(TrainingData $trainingData)
     {
         //
     }
@@ -57,10 +53,10 @@ class ProgramController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\TrainingData  $trainingData
      * @return \Illuminate\Http\Response
      */
-    public function edit(Program $program)
+    public function edit(TrainingData $trainingData)
     {
         //
     }
@@ -68,11 +64,11 @@ class ProgramController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateProgramRequest  $request
-     * @param  \App\Models\Program  $program
+     * @param  \App\Http\Requests\UpdateTrainingDataRequest  $request
+     * @param  \App\Models\TrainingData  $trainingData
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProgramRequest $request, Program $program)
+    public function update(UpdateTrainingDataRequest $request, TrainingData $trainingData)
     {
         //
     }
@@ -80,10 +76,10 @@ class ProgramController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Program  $program
+     * @param  \App\Models\TrainingData  $trainingData
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Program $program)
+    public function destroy(TrainingData $trainingData)
     {
         //
     }

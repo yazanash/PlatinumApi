@@ -27,7 +27,7 @@ class Player extends Model
         return $this->hasMany(Payment::class);
     }
     public function program(){
-        return $this->hasMany(Program::class);
+        return $this->belongsTo(Program::class);
     }
     public function metrics(){
         return $this->hasMany(Metric::class);

@@ -66,6 +66,6 @@ Route::group(['middleware'=>['auth:sanctum']],function(){
     Route::get("/player/training",[App\Http\Controllers\TrainingController::class,"view"]);
     Route::get("/player/payment",[App\Http\Controllers\PaymentController::class,"view"]);
     Route::get("/player/metrics",[App\Http\Controllers\MetricController::class,"index"]);
-    Route::get("/player/program",[App\Http\Controllers\PaymentController::class,"view"]);
+    Route::get("/player/program",[App\Http\Controllers\ProgramController::class,"index"]);
  });
 
